@@ -114,4 +114,18 @@ class LinkedList {
         }
         return null;
     }
-}
+
+    toString() {
+        let currentString = '';
+        let currentNode = this.headNode;
+    
+        while (currentNode !== null) {
+            currentString += `( ${currentNode.value} ) -> `;
+            currentNode = currentNode.nextNode;
+        }
+    
+        // Append "null" to indicate the end of the list
+        currentString += "null";
+        return currentString;
+    }
+}    
