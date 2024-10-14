@@ -49,4 +49,44 @@ class LinkedList {
         }
         return currentNode;
     }
+
+    at(index) {
+        let counter = 0;
+        let currentNode = this.headNode;
+    
+        while (currentNode !== null) {
+            if (index === counter) {
+                return currentNode;
+            }
+            counter += 1;
+            currentNode = currentNode.nextNode;
+        }
+    
+        // If the loop finishes and no node is found, return null (index out of bounds)
+        return null;
+    }
+    
+    pop() {
+        // If the list is empty, return early
+        if (this.headNode === null) {
+            return;
+        }
+    
+        // If the list has only one node, set the head to null
+        if (this.headNode.nextNode === null) {
+            this.headNode = null;
+            return;
+        }
+    
+        let currentNode = this.headNode;
+        let priorNode = null;
+    
+        while (currentNode.nextNode !== null) {
+            priorNode = currentNode;
+            currentNode = currentNode.nextNode;
+        }
+    
+        priorNode.nextNode = null;
+    }
+    
 }
