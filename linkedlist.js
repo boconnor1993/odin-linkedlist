@@ -100,4 +100,18 @@ class LinkedList {
         }
         return false;
     }
+
+    find(value) {
+        let indexCounter = 0;
+        let currentNode = this.headNode;
+
+        while (currentNode !== null) {
+            if (currentNode.value === value) {
+                return indexCounter;
+            }
+            indexCounter+=1;
+            currentNode = currentNode.nextNode;
+        }
+        return null;
+    }
 }
